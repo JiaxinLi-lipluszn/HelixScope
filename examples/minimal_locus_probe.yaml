@@ -1,0 +1,55 @@
+version: "0.1"
+report_type: locus_probe
+title: HelixScope minimal LocusProbe example
+genome: hg38
+
+loci:
+  - id: demo_enhancer
+    label: Synthetic enhancer
+    coord: chr7:5500000-5502400
+
+tracks:
+  - id: atac_demo
+    label: ATAC demo
+    assay: ATAC-seq
+    source: synthetic
+    color: "#277da1"
+  - id: chip_demo
+    label: TF occupancy demo
+    assay: ChIP-seq
+    source: synthetic
+    color: "#f3722c"
+  - id: attr_demo
+    label: Model attribution demo
+    type: model_attribution
+    source: synthetic
+    color: "#43aa8b"
+
+motifs:
+  - id: motif_1
+    label: FOXA2(MA0047.4)
+    start: 5500720
+    end: 5500741
+    strand: "+"
+    score: 12.4
+    source: synthetic_fimo_demo
+  - id: motif_2
+    label: GATA4(MA0482.2)
+    start: 5501260
+    end: 5501275
+    strand: "-"
+    score: 9.8
+    source: synthetic_fimo_demo
+
+variants:
+  - id: rsDemo1
+    position: 5501304
+    ref: A
+    alt: G
+
+normalization:
+  policy: demo_within_track_scaling
+  summary: Synthetic demo signals are scaled within each track.
+  caveats:
+    - Do not compare raw amplitudes across assay or TF families.
+    - Co-localization is compatible with shared occupancy, not proof of cooperation.

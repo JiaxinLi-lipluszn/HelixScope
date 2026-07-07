@@ -1,0 +1,228 @@
+:root {
+  color: #17202a;
+  background: #f4f6f8;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  font: inherit;
+}
+
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 24px;
+  border-bottom: 1px solid #d8dde3;
+  background: #ffffff;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+.topbar p {
+  margin: 4px 0 0;
+  color: #5b6673;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid #cdd5de;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.status.online {
+  color: #125c3a;
+  background: #e7f5ee;
+  border-color: #a8d8c0;
+}
+
+.status.offline {
+  color: #8f1d1d;
+  background: #fff0f0;
+  border-color: #f1b9b9;
+}
+
+.status.checking {
+  color: #495057;
+  background: #f1f3f5;
+}
+
+.workspace {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  min-height: 0;
+}
+
+.sidebar {
+  padding: 16px;
+  border-right: 1px solid #d8dde3;
+  background: #fbfcfd;
+}
+
+.navButton {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #29323d;
+  background: transparent;
+  text-align: left;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+.navButton.active,
+.navButton:hover {
+  border-color: #c9d3dd;
+  background: #eef3f7;
+}
+
+.viewer {
+  padding: 20px;
+  min-width: 0;
+}
+
+.trackHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 42px;
+  color: #4f5d6b;
+  font-size: 14px;
+}
+
+.trackCanvas {
+  height: min(520px, calc(100vh - 156px));
+  min-height: 360px;
+  border: 1px solid #cfd6de;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 24px;
+  display: grid;
+  grid-template-rows: 24px repeat(3, 1fr) 54px;
+  gap: 18px;
+  overflow: hidden;
+}
+
+.axis {
+  border-bottom: 2px solid #303943;
+  background:
+    repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent calc(10% - 1px),
+      #a9b3bd calc(10% - 1px),
+      #a9b3bd 10%
+    );
+}
+
+.track {
+  position: relative;
+  border-bottom: 1px solid #d5dbe2;
+  overflow: hidden;
+}
+
+.track::before {
+  content: "";
+  position: absolute;
+  inset: 18% 0 0;
+  clip-path: polygon(0 72%, 12% 62%, 24% 26%, 36% 72%, 48% 56%, 60% 18%, 72% 62%, 84% 42%, 100% 70%, 100% 100%, 0 100%);
+  opacity: 0.72;
+}
+
+.track.blue::before {
+  background: #277da1;
+}
+
+.track.orange::before {
+  background: #f3722c;
+}
+
+.track.green::before {
+  background: #43aa8b;
+}
+
+.motifLane {
+  position: relative;
+  border-top: 1px solid #e3e8ee;
+}
+
+.motifLane span {
+  position: absolute;
+  top: 16px;
+  width: 7%;
+  height: 16px;
+  border-radius: 3px;
+  background: #f9c74f;
+  border: 1px solid #8a6f00;
+}
+
+.motifLane span:nth-child(1) {
+  left: 28%;
+}
+
+.motifLane span:nth-child(2) {
+  left: 53%;
+}
+
+.motifLane span:nth-child(3) {
+  left: 72%;
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    border-right: 0;
+    border-bottom: 1px solid #d8dde3;
+  }
+
+  .navButton {
+    width: auto;
+    min-width: 132px;
+    margin-bottom: 0;
+  }
+}

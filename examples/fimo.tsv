@@ -1,0 +1,6 @@
+# FIMO output
+motif_id	motif_alt_id	sequence_name	start	stop	strand	score	p-value	q-value	matched_sequence
+MA0047.4	FOXA2	chr7:5500000-5502400	611	631	+	14.2	1e-5	0.01	ACGT
+MA0148.5	FOXA1	chr7:5500000-5502400	639	660	+	8.1	1e-4	0.02	ACGT
+MA0482.2	GATA4	chr7:5500000-5502400	653	668	-	11.6	1e-5	0.01	ACGT
+MA0000.0	OFF_TARGET	chr8:5500000-5502400	611	631	+	1.0	1e-1	0.5	ACGT

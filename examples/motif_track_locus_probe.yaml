@@ -1,0 +1,78 @@
+version: "0.1"
+report_type: locus_probe
+title: HelixScope compact motif track example
+genome: hg38
+
+loci:
+  - id: crowded_demo_enhancer
+    label: Crowded synthetic enhancer
+    coord: chr7:5500000-5502400
+
+tracks:
+  - id: atac_demo
+    label: ATAC demo
+    assay: ATAC-seq
+    source: synthetic
+    color: "#277da1"
+  - id: chip_demo
+    label: TF occupancy demo
+    assay: ChIP-seq
+    source: synthetic
+    color: "#f3722c"
+
+motifs:
+  - id: foxa_a
+    label: FOXA2(MA0047.4)
+    start: 5500610
+    end: 5500631
+    strand: "+"
+    score: 14.2
+    source: synthetic_fimo_demo
+  - id: foxa_b
+    label: FOXA1(MA0148.5)
+    start: 5500638
+    end: 5500660
+    strand: "+"
+    score: 8.1
+    source: synthetic_fimo_demo
+  - id: gata_a
+    label: GATA4(MA0482.2)
+    start: 5500652
+    end: 5500668
+    strand: "-"
+    score: 11.6
+    source: synthetic_fimo_demo
+  - id: hnf_a
+    label: HNF4A(MA0114.4)
+    start: 5501260
+    end: 5501282
+    strand: "+"
+    score: 9.4
+    source: synthetic_fimo_demo
+  - id: gata_b
+    label: GATA6(MA1104.2)
+    start: 5501274
+    end: 5501290
+    strand: "-"
+    score: 7.8
+    source: synthetic_fimo_demo
+  - id: cebp_a
+    label: CEBPA(MA0102.4)
+    start: 5501690
+    end: 5501712
+    strand: "."
+    score: 6.1
+    source: synthetic_fimo_demo
+
+variants:
+  - id: rsDemo1
+    position: 5501277
+    ref: A
+    alt: G
+
+normalization:
+  policy: demo_within_track_scaling
+  summary: Synthetic demo signals are scaled within each track; motif scores only affect glyph opacity.
+  caveats:
+    - Motif annotations show sequence compatibility, not TF binding by themselves.
+    - Do not compare raw amplitudes across assay or TF families.
